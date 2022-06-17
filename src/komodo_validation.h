@@ -83,8 +83,8 @@ extern char ASSETCHAINS_SYMBOL[65]; // defined in validation.cpp
 // second season ends at approx block 4,173,578, please check this!!!!! it should be as close as possible to July 15th 0:00 UTC. 
 // third season ended at AYA height 335000
 // Fourth season ends at around June 14th, 2021 (03:00:00 PM UTC) ,AYA block number: 770700
-// Fifth season end at around June 24th, 2022 (13:37:33 GMT) ,AYA block number: 1128667
-static const int32_t KMD_SEASON_HEIGHTS[NUM_KMD_SEASONS] = {0, 335000, 398750, 770700, 1128667, 999999999};
+// Fifth season end at around June 24th, 2022 (13:37:33 GMT) ,AYA block number: 1110400
+static const int32_t KMD_SEASON_HEIGHTS[NUM_KMD_SEASONS] = {0, 335000, 398750, 770700, 1110400, 999999999};
 
 // Era array of pubkeys. Add extra seasons to bottom as requried, after adding appropriate info above. 
 static const char *notaries_elected[NUM_KMD_SEASONS][NUM_KMD_NOTARIES][2] =
