@@ -85,7 +85,7 @@ extern char ASSETCHAINS_SYMBOL[65]; // defined in validation.cpp
 // third season ended at AYA height 335000
 // Fourth season ends at around June 14th, 2021 (03:00:00 PM UTC) ,AYA block number: 770700
 // Fifth season end at around June 24th, 2022 (13:37:33 GMT) ,AYA block number: 1110400
-// Sixth season end at around June 30th, 2023 (13:37:33 GMT) ,AYA block number: 0000000
+// Sixth season end at around June 30th, 2023 (13:37:33 GMT) ,AYA block number: 1329674
 static const int32_t KMD_SEASON_HEIGHTS[NUM_KMD_SEASONS] = {0, 335000, 398750, 770700, 1110400, 1329674, 999999999};
 
 // Era array of pubkeys. Add extra seasons to bottom as requried, after adding appropriate info above. 
