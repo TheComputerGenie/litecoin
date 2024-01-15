@@ -1,28 +1,10 @@
-#!/bin/bash
-# EMC2 build script for Ubuntu & Debian 9 v.3 (c) Decker (and webworker)
-berkeleydb () {
-    EMC2_ROOT=$(pwd)
-    EMC2_PREFIX="${EMC2_ROOT}/db4"
-    mkdir -p $EMC2_PREFIX
-    wget -N 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
-    echo '12edc0df75bf9abd7f82f821795bcee50f42cb2e5f76a6a281b85732798364ef db-4.8.30.NC.tar.gz' | sha256sum -c
-    tar -xzvf db-4.8.30.NC.tar.gz
-    cd db-4.8.30.NC/build_unix/
+# AnyCoin compile script (q) Decker, 2021-2022
+make clean
+make -C ${PWD}/depends v=1 NO_PROTON=1 NO_QT=1 HOST=$(depends/config.guess) -j10
 
-    ../dist/configure -enable-cxx -disable-shared -with-pic -prefix=$EMC2_PREFIX
+./autogen.sh
 
-    make install
-    cd $EMC2_ROOT
-}
+CXXFLAGS="-g0 -O2" \
+CONFIG_SITE="$PWD/depends/$(depends/config.guess)/share/config.site" ./configure --disable-tests --disable-bench --without-miniupnpc --enable-experimental-asm --with-gui=yes --disable-bip70
 
-buildemc2 () {
-    git pull
-    make clean
-    ./autogen.sh
-    ./configure LDFLAGS="-L${EMC2_PREFIX}/lib/" CPPFLAGS="-I${EMC2_PREFIX}/include/" --with-gui=no --disable-tests --disable-bench --without-miniupnpc --enable-experimental-asm --enable-static --disable-shared
-    make -j$(nproc)
-}
-
-berkeleydb
-buildemc2
-echo "Done building EMC2!"
+make V=1 -j10
