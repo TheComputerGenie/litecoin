@@ -1,6 +1,6 @@
 # AnyCoin compile script (q) Decker, 2021-2022
 make clean
-make -C ${PWD}/depends v=1 NO_PROTON=1 NO_QT=1 HOST=$(depends/config.guess) -j10
+make -C ${PWD}/depends v=1 NO_PROTON=0 NO_QT=0 HOST=$(depends/config.guess) -j10
 
 ./autogen.sh
 
